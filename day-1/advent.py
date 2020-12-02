@@ -17,6 +17,7 @@ def process(file):
 	return nums
 
 
+# O(n^2)
 def find_sum_to_2020(nums):
 	for num in nums:
 		for num2 in nums:
@@ -24,6 +25,17 @@ def find_sum_to_2020(nums):
 				return (num, num2)
 
 
+# O(n)
+def find_sum_to_2020_better(nums):
+	counterparts = set()
+
+	for num in nums:
+		if 2020-num in nums:
+			return num, 2020-num
+
+
+
+# O(n^3))        :(
 def find_three_sum_to_2020(nums):
 	for num in nums:
 		for num2 in nums:
@@ -40,6 +52,11 @@ num1, num2 = find_sum_to_2020(nums)
 print("the answer is", num1, num2)
 print("multiplied together", num1*num2)
 
+
+# Part 1 O(n)
+num1, num2 = find_sum_to_2020_better(nums)
+print("the better answer is", num1, num2)
+print("multiplied together", num1*num2)
 
 # Part 2
 print("starting part 2")
