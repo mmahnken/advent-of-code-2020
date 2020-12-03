@@ -16,6 +16,12 @@ def process(file):
 
 	return nums
 
+#############
+#           #
+# Part 1    # 
+#           #
+#############
+
 
 # O(n^2)
 def find_sum_to_2020(nums):
@@ -34,6 +40,11 @@ def find_sum_to_2020_better(nums):
 			return num, 2020-num
 
 
+#############
+#           #
+# Part 2    # 
+#           #
+#############
 
 # O(n^3))        :(
 def find_three_sum_to_2020(nums):
@@ -42,6 +53,18 @@ def find_three_sum_to_2020(nums):
 			for num3 in nums:
 				if num + num2 + num3 == 2020:
 					return (num, num2, num3)
+
+# O(n^2)
+def find_three_sum_to_2020_better(nums):
+	leftovers = set()
+	for num in nums:
+		leftovers.add(2020-num)
+
+	for num in nums:
+		for num2 in nums:
+			if (num+num2) in leftovers:
+				return (num, num2, 2020-(num+num2))
+
 
 
 nums = process("input.txt")
@@ -61,6 +84,12 @@ print("multiplied together", num1*num2)
 # Part 2
 print("starting part 2")
 num1, num2, num3 = find_three_sum_to_2020(nums)
+print(num1, num2, num3)
+print("multiplied together", num1*num2*num3)
+
+# Part 2 better
+print("starting part 2 better")
+num1, num2, num3 = find_three_sum_to_2020_better(nums)
 print(num1, num2, num3)
 print("multiplied together", num1*num2*num3)
 
