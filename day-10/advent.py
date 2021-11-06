@@ -109,13 +109,13 @@ def s(pairs):
 
 
 
+if __name__ == "__main__":
 
-
-a = process("input3.txt")
-# a, b = count_diffs(a)
-# print(f'answer is {a*b}')
-nn = get_new_neighbors(a)
-a = organize_new_neighbors(nn)
-arr = count_new_arrangements(nn, a)
-print(len(arr))
+	a = process("input3.txt")
+	# a, b = count_diffs(a)
+	# print(f'answer is {a*b}')
+	nn = get_new_neighbors(a)
+	a = organize_new_neighbors(nn)
+	arr = count_new_arrangements(nn, a)
+	print(len(arr))
 
